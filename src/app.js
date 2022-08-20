@@ -11,7 +11,8 @@ console.log(path.join(__dirname, "../public"));
 const viewsPath = path.join(__dirname, "../templates/views");
 const partialPath = path.join(__dirname, "../templates/partials");
 const app = express();
-const port = 3000;
+// const port = 3000; //use only when we run the app on our local machines
+const port = process.env.PORT || 3000;
 
 //setup handlebars Engine and views location
 app.set("view engine", "hbs");
