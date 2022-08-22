@@ -4,6 +4,7 @@ const hbs = require("hbs");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 const { createSecretKey } = require("crypto");
+const { brotliDecompressSync } = require("zlib");
 
 console.log(__dirname);
 console.log(path.join(__dirname, "../public"));
@@ -26,14 +27,14 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.get("", (req, res) => {
 	res.render("index", {
 		title: "Weatherr App",
-		name: "MOha Ghaly",
+		name: "Maha Ghaly",
 	});
 });
 
 app.get("/about", (req, res) => {
 	res.render("about", {
 		title: "About Me",
-		name: "Mahamiho",
+		name: "Maha Ghaly",
 	});
 });
 
@@ -41,7 +42,7 @@ app.get("/help", (req, res) => {
 	res.render("help", {
 		helpText: "Help Text will be Here",
 		title: "Help",
-		name: "Meme",
+		name: "Maha Ghaly",
 	});
 });
 
@@ -78,7 +79,6 @@ app.get("/Weather", (req, res) => {
 // app.get("", (req, res) => {});
 
 app.get("/products", (req, res) => {
-	// console.log(req.query);
 	if (!req.query.search) {
 		return res.send({
 			error: "you must provide a search term",
@@ -93,14 +93,14 @@ app.get("/help/*", (req, res) => {
 	res.render("404page", {
 		title: "Error Article Name",
 		errorText: "Help Article Not found!",
-		name: "DODO",
+		name: "Maha Ghaly",
 	});
 });
 app.get("*", (req, res) => {
 	res.render("404page", {
 		title: "ERROR PAGE",
 		errorText: "My 404 Page!",
-		name: "DEDA",
+		name: "Maha Ghaly",
 	});
 });
 
